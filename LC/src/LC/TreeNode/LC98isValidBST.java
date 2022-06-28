@@ -33,53 +33,105 @@ public class LC98isValidBST {
 
 
     //[5,1,4,null,null,3,6]
-    public boolean isValidBST(TreeNode root) {
+    //[1,null,1]
+    public static void main(String[] args) {
+        LC98isValidBST l = new LC98isValidBST();
+        TreeNode t1 = new TreeNode(1, null, new TreeNode(1));
+        l.isValidBSTDG(t1);
+
+    }
+
+
+    /*
+    //速度内存差不多，但是写的简洁
+    执行用时：
+0 ms
+, 在所有 Java 提交中击败了
+100.00%
+的用户
+内存消耗：
+41.2 MB
+, 在所有 Java 提交中击败了
+12.21%
+的用户
+通过测试用例：
+80 / 8
+     */
+    double last = -Double.MAX_VALUE;
+
+    public boolean isValidBSTLC(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        if (isValidBSTLC(root.left)) {
+            if (last < root.val) {
+                last = root.val;
+                return isValidBSTLC(root.right);
+            }
+        }
+        return false;
+    }
+
+
+    /*
+    执行用时：
+0 ms
+, 在所有 Java 提交中击败了
+100.00%
+的用户
+内存消耗：
+41.3 MB
+, 在所有 Java 提交中击败了
+7.21%
+的用户
+通过测试用例：
+80 / 80
+     */
+    public boolean isValidBSTDG(TreeNode root) {
+        if (root == null) return false;
         if (root.left == null && root.right == null) return true;
         if (root.left == null) {
             if (root.right.val > root.val) {
-                return isValidBSTDG(root.right, root.val, false);
+                return isValidDG(root.right, root.val, Integer.MAX_VALUE);
             } else {
                 return false;
             }
         }
+
         if (root.right == null) {
             if (root.left.val < root.val) {
-                return isValidBSTDG(root.left, root.val, true);
+                return isValidDG(root.left, Integer.MIN_VALUE, root.val);
             } else {
                 return false;
             }
         }
-        if (root.left.val < root.val && root.right.val > root.val) {
-            return isValidBSTDG(root.left, root.val, true) && isValidBSTDG(root.right, root.val, false);
-        }else {
+
+        if (root.left.val >= root.val || root.right.val <= root.val) {
             return false;
         }
+
+        return isValidDG(root.right, root.val, 2147483648l) && isValidDG(root.left, -2147483649l, root.val);
     }
 
-    boolean isValidBSTDG(TreeNode root, int lastVal, boolean isLeft) {
-        if (root.left == null && root.right == null) {
-            return true;
-        }
 
+    public boolean isValidDG(TreeNode root, long minValue, long maxValue) {
+        if (root.left == null && root.right == null) return true;
         if (root.left == null) {
-            if (isLeft) {
-                if (root.right.val > lastVal) return false;
+            if (root.right.val <= root.val || root.right.val <= minValue || root.right.val >= maxValue) {
+                return false;
             }
-            if (root.right.val < root.val) return false;
-            return isValidBSTDG(root.right, root.val, false);
+            return isValidDG(root.right, Math.max(root.val, minValue), maxValue);
         }
         if (root.right == null) {
-            if (!isLeft) {
-                if (root.left.val < lastVal) return false;
+            if (root.left.val >= root.val || root.left.val <= minValue || root.left.val >= maxValue) {
+                return false;
             }
-            if (root.left.val > root.val) return false;
-            return isValidBSTDG(root.left, root.val, true);
+            return isValidDG(root.left, minValue, root.val);
         }
-        if (root.left.val<root.val&&root.right.val>root.val){
-            return isValidBSTDG(root.left, root.val, true) && isValidBSTDG(root.right, root.val, false);
-        }else {
+        if (root.left.val >= root.val || root.left.val <= minValue || root.left.val >= maxValue
+                || root.right.val <= root.val || root.right.val <= minValue || root.right.val >= maxValue) {
             return false;
         }
-
+        return isValidDG(root.right, Math.max(root.val, minValue), maxValue) && isValidDG(root.left, minValue, root.val);
     }
 }

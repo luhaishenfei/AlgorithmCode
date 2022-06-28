@@ -46,7 +46,7 @@ public class LC98isValidBST {
 
 
     //中序遍历
-    public boolean inorderTraversal(TreeNode root) {
+    public boolean isValidBSTLCInorderTraversal(TreeNode root) {
         Deque<TreeNode> stack = new LinkedList<TreeNode>();
         double inorder = -Double.MAX_VALUE;
 
@@ -65,7 +65,6 @@ public class LC98isValidBST {
         }
         return true;
     }
-
 
 
     /*

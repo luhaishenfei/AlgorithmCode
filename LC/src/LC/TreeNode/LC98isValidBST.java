@@ -73,6 +73,41 @@ public class LC98isValidBST {
     }
 
 
+    //my version  that LC plus it.
+    /*
+    执行结果：
+通过
+显示详情
+添加备注
+
+执行用时：
+0 ms
+, 在所有 Java 提交中击败了
+100.00%
+的用户
+内存消耗：
+41.3 MB
+, 在所有 Java 提交中击败了
+9.88%
+的用户
+通过测试用例：
+80 / 80
+     */
+    public boolean isValidBSTLC2(TreeNode root) {
+        return isValidBSTLC2(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    }
+
+    public boolean isValidBSTLC2(TreeNode node, long lower, long upper) {
+        if (node == null) {
+            return true;
+        }
+        if (node.val <= lower || node.val >= upper) {
+            return false;
+        }
+        return isValidBSTLC2(node.left, lower, node.val) && isValidBSTLC2(node.right, node.val, upper);
+    }
+
+
     /*
     执行用时：
 0 ms

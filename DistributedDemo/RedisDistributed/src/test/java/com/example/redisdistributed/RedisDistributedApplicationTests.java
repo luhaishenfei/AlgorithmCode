@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+
 @SpringBootTest
 class RedisDistributedApplicationTests {
 
@@ -32,4 +35,13 @@ class RedisDistributedApplicationTests {
         System.out.println("redis每秒操作：" + i + "次");
     }
 
+
+    @Test
+    void distributedTest() {
+        while (!redisTemplate.opsForValue().setIfAbsent("lockKey", "t1", 20, TimeUnit.SECONDS)
+        ) {
+
+        }
+
+    }
 }

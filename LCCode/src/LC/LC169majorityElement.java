@@ -28,6 +28,21 @@ n == nums.length
  */
 public class LC169majorityElement {
 
+    //Boyer-Moore 算法
+    public int majorityElementLCBM(int[] nums) {
+        int count = 0;
+        Integer candidate = null;
+
+        for (int num : nums) {
+            if (count == 0) {
+                candidate = num;
+            }
+            count += (num == candidate) ? 1 : -1;
+        }
+
+        return candidate;
+    }
+
     /*
     执行用时：
 2 ms
@@ -47,7 +62,89 @@ public class LC169majorityElement {
         return nums[nums.length/2];
     }
 
+    //
+    private int randRange(Random rand, int min, int max) {
+        return rand.nextInt(max - min) + min;
+    }
 
+    private int countOccurences(int[] nums, int num) {
+        int count = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == num) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    /*
+    方法三：随机化
+思路
+
+因为超过 \lfloor \dfrac{n}{2} \rfloor⌊
+2
+n
+​
+ ⌋ 的数组下标被众数占据了，这样我们随机挑选一个下标对应的元素并验证，有很大的概率能找到众数。
+
+算法
+
+由于一个给定的下标对应的数字很有可能是众数，我们随机挑选一个下标，检查它是否是众数，如果是就返回，否则继续随机挑选
+
+     */
+    //随机化
+    public int majorityElementLC(int[] nums) {
+        Random rand = new Random();
+
+        int majorityCount = nums.length / 2;
+
+        while (true) {
+            int candidate = nums[randRange(rand, 0, nums.length)];
+            if (countOccurences(nums, candidate) > majorityCount) {
+                return candidate;
+            }
+        }
+    }
+
+    private int countInRange(int[] nums, int num, int lo, int hi) {
+        int count = 0;
+        for (int i = lo; i <= hi; i++) {
+            if (nums[i] == num) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    //
+    private int majorityElementRec(int[] nums, int lo, int hi) {
+        // base case; the only element in an array of size 1 is the majority
+        // element.
+        if (lo == hi) {
+            return nums[lo];
+        }
+
+        // recurse on left and right halves of this slice.
+        int mid = (hi - lo) / 2 + lo;
+        int left = majorityElementRec(nums, lo, mid);
+        int right = majorityElementRec(nums, mid + 1, hi);
+
+        // if the two halves agree on the majority element, return it.
+        if (left == right) {
+            return left;
+        }
+
+        // otherwise, count each element and return the "winner".
+        int leftCount = countInRange(nums, left, lo, hi);
+        int rightCount = countInRange(nums, right, lo, hi);
+
+        return leftCount > rightCount ? left : right;
+    }
+
+    //分治
+    public int majorityElementLC2(int[] nums) {
+        return majorityElementRec(nums, 0, nums.length - 1);
+    }
 
 
 

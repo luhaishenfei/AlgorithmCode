@@ -1,4 +1,4 @@
-package LC.undo;
+package LC;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,27 +35,38 @@ public class LC1200minimumAbsDifference {
     输入：arr = [3,8,-10,23,19,-4,-14,27]
     输出：[[-14,-10],[19,23],[23,27]]
      */
+
+    /*
+    执行用时：
+18 ms
+, 在所有 Java 提交中击败了
+34.00%
+的用户
+内存消耗：
+52.3 MB
+, 在所有 Java 提交中击败了
+23.36%
+的用户
+     */
     public List<List<Integer>> minimumAbsDifference(int[] arr) {
         int miniAbs = Integer.MAX_VALUE;
         Arrays.sort(arr);
         List<List<Integer>> res = new ArrayList<>();
         for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = i + 1; j < arr.length; j++) {
-                int abs = Math.abs(arr[i] - arr[j]);
+                int abs = Math.abs(arr[i] - arr[i+1]);
                 if (miniAbs > abs) {
                     res.clear();
                     miniAbs = abs;
                     List tmpList = new ArrayList();
-                    tmpList.add(Math.min(arr[i], arr[j]));
-                    tmpList.add(Math.max(arr[i], arr[j]));
+                    tmpList.add(Math.min(arr[i], arr[i+1]));
+                    tmpList.add(Math.max(arr[i], arr[i+1]));
                     res.add(tmpList);
                 }else if (miniAbs==abs){
                     List tmpList = new ArrayList();
-                    tmpList.add(Math.min(arr[i], arr[j]));
-                    tmpList.add(Math.max(arr[i], arr[j]));
+                    tmpList.add(Math.min(arr[i], arr[i+1]));
+                    tmpList.add(Math.max(arr[i], arr[i+1]));
                     res.add(tmpList);
                 }
-            }
         }
         return res;
     }

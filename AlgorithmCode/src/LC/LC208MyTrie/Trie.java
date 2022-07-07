@@ -55,6 +55,7 @@ insert、search 和 startsWith 调用次数 总计 不超过 3 * 104 次
 16 / 16
  */
 //speed little slow,maybe not a little,a lot
+//LC uses 26 arrays Trie[26];
 class Trie {
     boolean isEnd;
     Map<Object, Trie> map;

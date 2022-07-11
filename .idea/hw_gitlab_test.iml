@@ -7,7 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/LCCode/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/AlgorithmCode/src" isTestSource="false" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="corretto-1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

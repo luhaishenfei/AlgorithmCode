@@ -1,4 +1,4 @@
-package LC.TreeNode;
+package LC._TreeNode;
 
 public class LC700searchBST {
 /*

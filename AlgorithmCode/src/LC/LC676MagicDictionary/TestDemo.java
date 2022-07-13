@@ -5,5 +5,7 @@ public class TestDemo {
         MagicDictionary m = new MagicDictionary();
         m.buildDict(new String[]{"hello", "world", "hi", "nihao"});
         System.out.println(m.dic);
+        System.out.println(m.search("hhllo"));
+        System.out.println(m.search("hhloo"));
     }
 }

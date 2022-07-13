@@ -1,4 +1,4 @@
-package LC.ListNode;
+package LC._ListNode;
 
 public class LC206reverseList {
 

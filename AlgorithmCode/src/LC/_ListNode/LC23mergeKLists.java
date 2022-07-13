@@ -1,7 +1,6 @@
-package LC.ListNode;
+package LC._ListNode;
 
 import java.util.Comparator;
-import java.util.List;
 import java.util.PriorityQueue;
 
 /*

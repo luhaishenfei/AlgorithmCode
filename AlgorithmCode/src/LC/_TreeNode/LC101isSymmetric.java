@@ -1,4 +1,4 @@
-package LC.TreeNode;
+package LC._TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;

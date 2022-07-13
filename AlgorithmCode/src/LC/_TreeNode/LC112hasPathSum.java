@@ -1,4 +1,4 @@
-package LC.TreeNode;
+package LC._TreeNode;
 
 /*
 给你二叉树的根节点root 和一个表示目标和的整数targetSum 。

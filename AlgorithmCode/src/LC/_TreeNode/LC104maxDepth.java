@@ -1,4 +1,4 @@
-package LC.TreeNode;
+package LC._TreeNode;
 
 import java.util.Deque;
 import java.util.LinkedList;

@@ -44,8 +44,48 @@ ci 列上的所有单元格，加 1 。
 public class LC1252oddCells {
     public static void main(String[] args) {
         LC1252oddCells l = new LC1252oddCells();
-        l.oddCells(2,3,new int[][]{{0,1},{1,1}});
+        l.oddCells(2, 3, new int[][]{{0, 1}, {1, 1}});
     }
+
+    /*
+    执行结果：
+通过
+显示详情
+watch LC's help,write it
+
+执行用时：
+1 ms
+, 在所有 Java 提交中击败了
+55.04%
+的用户
+内存消耗：
+39.4 MB
+, 在所有 Java 提交中击败了
+53.10%
+的用户
+     */
+    public int oddCells(int m, int n, int[][] indices) {
+        int[] mCount = new int[m];
+        int[] nCount = new int[n];
+        for (int[] arr : indices
+        ) {
+            mCount[arr[0]]++;
+            nCount[arr[1]]++;
+        }
+        int res = 0;
+        for (int mC :
+                mCount) {
+            for (int nC :
+                    nCount) {
+                if (mC % 2 == 0 && nC % 2 == 0||mC % 2 != 0 && nC % 2 != 0) {
+                }else {
+                    res++;
+                }
+            }
+        }
+        return res;
+    }
+
 
     /*
     执行结果：
@@ -66,29 +106,68 @@ public class LC1252oddCells {
 通过测试用例：
 44 / 44
      */
-    public int oddCells(int m, int n, int[][] indices) {
-        int[][] matrix= new int[m][n];
-        for (int[] arr:indices
-             ) {
+    public int oddCells1(int m, int n, int[][] indices) {
+        int[][] matrix = new int[m][n];
+        for (int[] arr : indices
+        ) {
             for (int i = 0; i < matrix.length; i++) {
                 for (int j = 0; j < matrix[i].length; j++) {
-                    if (i==arr[0]){
+                    if (i == arr[0]) {
                         matrix[i][j]++;
                     }
-                    if (j==arr[1]){
+                    if (j == arr[1]) {
                         matrix[i][j]++;
                     }
                 }
             }
         }
-        int res=0;
+        int res = 0;
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
-               if (matrix[i][j]%2==1){
-                   res++;
-               }
+                if (matrix[i][j] % 2 == 1) {
+                    res++;
+                }
             }
         }
         return res;
+    }
+
+
+    /*
+    执行结果：
+通过
+显示详情
+添加备注
+
+执行用时：
+0 ms
+, 在所有 Java 提交中击败了
+100.00%
+的用户
+内存消耗：
+39.3 MB
+, 在所有 Java 提交中击败了
+69.38%
+的用户
+通过测试用例：
+44 / 44
+     */
+    //★
+    public int oddCellsLCUser(int n, int m, int[][] indices) {
+        boolean[] r = new boolean[n];
+        boolean[] c = new boolean[m];
+        int i;
+        for (i = 0; i < indices.length; i++) {
+            r[indices[i][0]] = !r[indices[i][0]];
+            c[indices[i][1]] = !c[indices[i][1]];
+        }
+        int rr = 0, cc = 0;
+        for (i = 0; i < r.length; i++) {
+            if (r[i]) rr++;
+        }
+        for (i = 0; i < c.length; i++) {
+            if (c[i]) cc++;
+        }
+        return rr * m + cc * n - rr * cc * 2;
     }
 }

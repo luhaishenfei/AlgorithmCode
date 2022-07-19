@@ -7,6 +7,14 @@
 <body>
 
 <script>
+
+    function encode(){
+        let str = encodeURI("你好");
+        let base64=btoa(str);
+        console.log(base64);
+    }
+    encode();
+
     //解决'，'和','的兼容问题
     var str ="1,2,3，4，5,"
     str=str.replaceAll('，',',');

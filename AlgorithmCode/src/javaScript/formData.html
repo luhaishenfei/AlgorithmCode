@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="advForm">
+    <p>广告名称：<input type="text" name="advName" value="xixi"></p>
+    <p>广告类别：<select name="advType">
+        <option value="1">轮播图</option>
+        <option value="2">轮播图底部广告</option>
+        <option value="3">热门回收广告</option>
+        <option value="4">优品精选广告</option>
+    </select></p>
+    <p><input type="button" id="btn" value="添加"></p>
+</form>
+
+<form id="postFileForm">
+    <p>传输内容：<select name="groupId">
+        <option value="group2">文件</option>
+        <option value="group1">图片</option>
+    </select></p>
+    <p>传输文件<input type="file" name="file"></p>
+    <p><input type="button" id="btnP" value="提交"></p>
+</form>
+
+<form id="downloadFile">
+    <p>下载文件路径：<input type="text" name="fileId"></p>
+    <p><input type="button" id="btnDownload" value="下载"></p>
+</form>
+
+<p>
+    <button id="getRedisValue">获取</button>
+</p>
+
+<script>
+    function printFormInfo() {
+        var form = document.querySelector("#advForm");
+        var formData = new FormData(form);
+        console.log(formData.get("advName"));
+        console.log(formData.get("advType"));
+    }
+
+    function postFormData() {
+        var formData = new FormData(document.querySelector("#postFileForm"));
+        var xhr = new XMLHttpRequest();
+        //file/upload
+        xhr.open("post", "http://10.0.16.158:8076/file/upload");
+        // xhr.setRequestHeader('content-type','multipart/form-data')
+        xhr.send(formData);
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+                console.log(200);
+            }
+        }
+    }
+
+    function downloadFile() {
+        var formData = new FormData(document.querySelector("#downloadFile"));
+        var xhr = new XMLHttpRequest();
+        xhr.open("post", "http://10.0.16.158:8076/file/download");
+        xhr.send(formData);
+    }
+
+
+    // var btn = document.querySelector("#btn");
+    //
+    // btn.onclick = printFormInfo();
+    //
+    //
+    // var btnP = document.querySelector("#btnP");
+    // btnP.onclick = postFormData();
+    //
+    // var btnDownload = document.querySelector("#btnDownload");
+    // btnDownload.onclick = downloadFile();
+
+    var btnGetRedisValue = document.querySelector("#getRedisValue");
+    btnGetRedisValue.onclick = function () {
+        var xhr = new XMLHttpRequest();
+//?callback=showData
+        xhr.open("get", "http://10.0.20.86:7012/getValue",true);
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4){
+                console.log(xhr.responseText)
+            }
+        }
+        xhr.send(null);
+    }
+
+
+</script>
+</body>
+</html>

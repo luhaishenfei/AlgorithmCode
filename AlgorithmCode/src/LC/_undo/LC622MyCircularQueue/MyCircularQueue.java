@@ -1,4 +1,5 @@
 package LC._undo.LC622MyCircularQueue;
+
 /*
 622. 设计循环队列
 设计你的循环队列实现。 循环队列是一种线性数据结构，其操作表现基于 FIFO（先进先出）原则并且队尾被连接在队首之后以形成一个循环。它也被称为“环形缓冲器”。
@@ -37,48 +38,73 @@ circularQueue.Rear();  // 返回 4
 请不要使用内置的队列库。
 通过次数99,149提交次数214,117
  */
+
+
+/*
+["MyCircularQueue","enQueue","enQueue","enQueue","enQueue","deQueue","deQueue","isEmpty","isEmpty","Rear","Rear","deQueue"]
+[[8],[3],[9],[5],[0],[],[],[],[],[],[],[]]
+输出：
+[null,true,true,true,true,true,true,false,false,9,9,true]
+预期结果：
+[null,true,true,true,true,true,true,false,false,0,0,true]
+ */
 class MyCircularQueue {
 
     int[] q;
     int idxF;
-    int idxB;
+    int idxOut;
 
     public MyCircularQueue(int k) {
-        q=new int[k];
-        for (int i = 0; i < k; i++) {
-            q[i]=-1;
-        }
-        idxF=0;
-        idxB=k-1;
+        q = new int[k];
+        idxF = 0;
     }
 
     public boolean enQueue(int value) {
-        return false;
+        if (isFull()) {
+            return false;
+        }
+        q[idxF] = value;
+        if (idxF == q.length - 1) {
+            idxF = 0;
+        } else {
+            idxF++;
+        }
+        return true;
     }
 
     public boolean deQueue() {
-        return false;
-
+        if (isEmpty()) {
+            return false;
+        }
+        if (idxOut == q.length - 1) {
+            idxOut = 0;
+        } else {
+            idxOut++;
+        }
+        return true;
     }
 
     public int Front() {
-        return -1;
-
+        if (isEmpty()) {
+            return -1;
+        }
+        return q[idxOut];
     }
 
     public int Rear() {
-        return -1;
-
+        if (isEmpty()) {
+            return -1;
+        }
+        return q[idxF-1== q.length-1?0:idxF-1];
     }
 
     public boolean isEmpty() {
-        return false;
 
+        return idxF == 0 ? true : false;
     }
 
     public boolean isFull() {
-        return false;
-
+        return idxF == q.length ? true : false;
     }
 }
 

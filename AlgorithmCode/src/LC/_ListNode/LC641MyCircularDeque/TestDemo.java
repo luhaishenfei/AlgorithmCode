@@ -1,4 +1,6 @@
-package LC._undo.LC641MyCircularDeque;
+package LC._ListNode.LC641MyCircularDeque;
+
+import LC._ListNode.LC641MyCircularDeque.Array.MyCircularDeque;
 
 public class TestDemo {
     public static void main(String[] args) {

@@ -1,7 +1,26 @@
-package LC._undo.LC641MyCircularDeque;
+package LC._ListNode.LC641MyCircularDeque.Array;
 
 import java.util.Arrays;
 
+/*
+执行结果：
+通过
+显示详情
+添加备注
+
+执行用时：
+4 ms
+, 在所有 Java 提交中击败了
+100.00%
+的用户
+内存消耗：
+42.1 MB
+, 在所有 Java 提交中击败了
+41.86%
+的用户
+通过测试用例：
+51 / 51
+ */
 public class MyCircularDeque {
 
 
@@ -18,20 +37,17 @@ public class MyCircularDeque {
         isFull = false;
     }
 
-    private boolean isAbsEquals1(int f, int b) {
-        if (f < b) {
-            return f == 0 && b == q.length - 1?true:false;
-
-        }
-        return false;
-    }
-
     public boolean isFull() {
         return isFull;
     }
 
     public boolean isEmpty() {
-        return !isFull;
+        int dif = idxF - idxOut;
+        if (dif == 1 || dif == -q.length + 1) {
+            return isFull ? false : true;
+        } else {
+            return false;
+        }
     }
 
 
@@ -57,8 +73,8 @@ public class MyCircularDeque {
             return false;
         }
         q[idxOut] = value;
-        idxOut = subIdx(idxOut);
         if (idxF == idxOut) isFull = true;
+        idxOut = subIdx(idxOut);
         return true;
     }
 
@@ -67,10 +83,9 @@ public class MyCircularDeque {
             return false;
         }
         q[idxF] = value;
-        idxF = addIdx(idxF);
         if (idxF == idxOut) isFull = true;
+        idxF = addIdx(idxF);
         return true;
-
     }
 
     public boolean deleteFront() {
@@ -92,12 +107,15 @@ public class MyCircularDeque {
     }
 
     public int getFront() {
-        return isEmpty() ? -1 : q[idxOut];
+        return isEmpty() ?
+                -1 :
+                q[(idxOut + 1 + q.length) % q.length];
     }
 
     public int getRear() {
-        return isEmpty() ? -1 :
-                q[idxF - 1 < 0 ? q.length - 1 : idxF - 1];
+        return isEmpty() ?
+                -1 :
+                q[(idxF - 1 +q.length )%q.length];
     }
 
 

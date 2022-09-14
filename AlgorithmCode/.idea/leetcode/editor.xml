@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="LeetcodeEditor">
+    <option name="projectConfig">
+      <map>
+        <entry key="$PROJECT_DIR$/../../../../code/LCCode/leetcode/editor/cn/LC1619_mean-of-array-after-removing-some-elements.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="frontendQuestionId" value="leetcode.cn1619" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/../../../../code/LCCode/leetcode/editor/cn/LC1619_mean-of-array-after-removing-some-elements.java" />
+              <option name="titleSlug" value="mean-of-array-after-removing-some-elements" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

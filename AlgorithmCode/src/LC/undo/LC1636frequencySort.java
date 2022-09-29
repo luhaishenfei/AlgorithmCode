@@ -5,7 +5,8 @@ import java.util.*;
 public class LC1636frequencySort {
     public static void main(String[] args) {
         LC1636frequencySort l = new LC1636frequencySort();
-        l.frequencySort(new int[]{1,  2, 2, 1,3, 3});
+       // l.frequencySort(new int[]{1,  2, 2, 1,3, 3});
+
     }
 
 

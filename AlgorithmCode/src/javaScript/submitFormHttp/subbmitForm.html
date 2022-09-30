@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="advForm">
+    <p>广告名称：<input type="text" name="advName" value="xixi"></p>
+    <p>广告类别：<select name="advType">
+        <option value="1">轮播图</option>
+        <option value="2">轮播图底部广告</option>
+        <option value="3">热门回收广告</option>
+        <option value="4">优品精选广告</option>
+    </select></p>
+    <p><input type="button" id="btn" value="添加"></p>
+</form>
+
+<form id="postFileForm">
+    <p>传输内容：<select name="groupId">
+        <option value="group2">文件</option>
+        <option value="group1">图片</option>
+    </select></p>
+    <p>传输文件<input type="file" name="file"></p>
+    <p><input type="button" id="btnP" value="提交"></p>
+</form>
+<form id="downloadFile">
+    <p>下载文件路径：<input type="text" name="fileId"></p>
+    <p><input type="button" id="btnDownload" value="下载"></p>
+</form>
+
+<p>
+    <button id="getRedisValue">获取</button>
+</p>
+
+<script>
+    function printFormInfo() {
+        var form = document.querySelector("#advForm");
+        var formData = new FormData(form);
+        console.log(subbmitForm.get("advName"));
+        console.log(subbmitForm.get("advType"));
+    }
+
+    function postFormData() {
+        var formData = new FormData(document.querySelector("#postFileForm"));
+        var xhr = new XMLHttpRequest();
+        //file/upload
+        xhr.open("post", "http://10.0.16.158:8076/file/upload");
+        // xhr.setRequestHeader('content-type','multipart/form-data')
+        xhr.send(subbmitForm);
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+                console.log(200);
+            }
+        }
+    }
+
+    var supPath=Forguncy.CommandHelper.getVariableValue("superPath");
+console.log("path:"+supPath);
+
+var service=Forguncy.CommandHelper.getVariableValue("servicePort");
+console.log(service)
+
+var fileUrl=document.getElementById("path");
+    fileUrl.value=supPath
+
+
+
+$("#fileUpload").ajaxSubmit({
+            success: function (data) {
+                // 上传完成，刷新table
+                if (0 === data.code) {
+                    alert('上传成功');
+		Forguncy.CommandHelper.setVariableValue('res', 0);
+console.log(data);
+                } else {
+                    alert("上传失败，"+data.msg);
+           		Forguncy.CommandHelper.setVariableValue('res', -1);
+                }
+                $(".loading_container").hide();
+            },
+            error: function () {
+   alert("上传失败，"+data.msg);
+           		Forguncy.CommandHelper.setVariableValue('res', -1);
+                $(".loading_container").hide();
+            },
+            url: service+'/fileUpload', /*设置post提交到的页面*/
+    type: "post", /*设置表单以post方法提交*/
+        dataType: "json" /*设置返回值类型为文本*/
+
+    });
+
+    function downloadFile() {
+        var formData = new FormData(document.querySelector("#downloadFile"));
+        var xhr = new XMLHttpRequest();
+        xhr.open("post", "http://10.0.16.158:8076/file/download");
+        xhr.send(subbmitForm);
+    }
+
+
+    // var btn = document.querySelector("#btn");
+    //
+    // btn.onclick = printFormInfo();
+    //
+    //
+    // var btnP = document.querySelector("#btnP");
+    // btnP.onclick = postFormData();
+    //
+    // var btnDownload = document.querySelector("#btnDownload");
+    // btnDownload.onclick = downloadFile();
+
+    var btnGetRedisValue = document.querySelector("#getRedisValue");
+    btnGetRedisValue.onclick = function () {
+        var xhr = new XMLHttpRequest();
+//?callback=showData
+        xhr.open("get", "http://10.0.20.86:7012/getValue", true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                console.log(xhr.responseText)
+            }
+        }
+        xhr.send(null);
+    }
+
+
+    $(".doit").before("<form enctype=\"multipart/form-data\" id=\"fileUpload\">\n" +
+        "    <input type=\"file\" name=\"file\">\n" +
+        "    <input id=\"path\" style=\"display: none \" type=\"text\" name=\"path\">\n" +
+        "</form>\n");
+
+
+debugger;
+    var xhr = new XMLHttpRequest();
+    xhr.res
+
+
+    function progressFunction(evt) {
+
+        var progressBar = document.getElementById("progressBar");
+        var percentageDiv = document.getElementById("percentage");
+        // event.total是需要传输的总字节，event.loaded是已经传输的字节。如果event.lengthComputable不为真，则event.total等于0
+        if (evt.lengthComputable) {//
+            progressBar.max = evt.total;
+            progressBar.value = evt.loaded;
+            percentageDiv.innerHTML = Math.round(evt.loaded / evt.total * 100) + "%";
+        }
+
+        var time = document.getElementById("time");
+        var nt = new Date().getTime();//获取当前时间
+        var pertime = (nt-ot)/1000; //计算出上次调用该方法时到现在的时间差，单位为s
+        ot = new Date().getTime(); //重新赋值时间，用于下次计算
+
+        var perload = evt.loaded - oloaded; //计算该分段上传的文件大小，单位b
+        oloaded = evt.loaded;//重新赋值已上传文件大小，用以下次计算
+
+        //上传速度计算
+        var speed = perload/pertime;//单位b/s
+        var bspeed = speed;
+        var units = 'b/s';//单位名称
+        if(speed/1024>1){
+            speed = speed/1024;
+            units = 'k/s';
+        }
+        if(speed/1024>1){
+            speed = speed/1024;
+            units = 'M/s';
+        }
+        speed = speed.toFixed(1);
+        //剩余时间
+        var resttime = ((evt.total-evt.loaded)/bspeed).toFixed(1);
+        time.innerHTML = '，速度：'+speed+units+'，剩余时间：'+resttime+'s';
+        if(bspeed==0)
+            time.innerHTML = '上传已取消';
+    }
+
+    var doc=document.getElementById('fgc-popup-dialog');
+    doc.
+
+    //上传成功响应
+    function uploadComplete(evt) {
+        //服务断接收完文件返回的结果
+        //    alert(evt.target.responseText);
+        alert("上传成功！");
+    }
+    //上传失败
+    function uploadFailed(evt) {
+        alert("上传失败！");
+    }
+    //取消上传
+    function cancleUploadFile(){
+        xhr.abort();
+    }
+
+</script>
+</body>
+</html>

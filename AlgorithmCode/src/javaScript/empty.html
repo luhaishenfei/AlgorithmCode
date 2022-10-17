@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="doit"></div>
+<script>
+
+
+$(".doit").before("<form enctype=\"multipart/form-data\" id=\"fileUpload\">\n" +
+    "    <input type=\"file\" name=\"file\">\n" +
+    "    <input id=\"path\"    style=\"display: none \" type=\"text\" name=\"path\">\n" +
+    "    <input id=\"members\" style=\"display: none \" type=\"text\" name=\"visibleUsers\">\n"+
+    "</form>\n");
+</script>
+
+</body>
+</html>

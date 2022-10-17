@@ -1,5 +1,8 @@
 package LC.undo;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /*
 
 3. 无重复字符的最长子串
@@ -34,33 +37,32 @@ s 由英文字母、数字、符号和空格组成
 public class LC3lengthOfLongestSubstring {
     public static void main(String[] args) {
         LC3lengthOfLongestSubstring l = new LC3lengthOfLongestSubstring();
-        String str = "abcdefgcab";
-        System.out.println((int) 'a');
-        System.out.println((int) 'z');
-        l.lengthOfLongestSubstringLCUser(str);
+        String str = "pwwkew";
+        System.out.println(l.lengthOfLongestSubstring(str));
     }
 
 
-    //cabsjkaljs
+    /*
+    执行耗时:41 ms,击败了13.03% 的Java用户
+	内存消耗:41.9 MB,击败了18.06% 的Java用户
+     */
     public int lengthOfLongestSubstring(String s) {
-        int start = 0;
         int longest = 0;
+        HashMap<Character, Integer> recordMap = new HashMap();
         for (int i = 0; i < s.length(); i++) {
-            for (int j = i + 1; j < s.length(); j++) {
-                for (int k = i + 1; k < j; k++) {
-                    if (s.charAt(k) == s.charAt(j)) {
-                        if (k - i > longest) {
-                            longest = k - i;
-                        }
-                        break;
-                    }
-                }
-
+            char c = s.charAt(i);
+            if (!recordMap.containsKey(c)) {
+                recordMap.put(c, i);
+            } else {
+                int lastIdx = recordMap.get(c);
+                recordMap.values().removeIf(value -> value < lastIdx);
+                recordMap.replace(c, i);
+            }
+            if (recordMap.size() > longest) {
+                longest = recordMap.size();
             }
         }
-
-
-        return 0;
+        return longest;
     }
 
 
@@ -71,7 +73,6 @@ public class LC3lengthOfLongestSubstring {
             last[i] = -1;
         }
         int n = s.length();
-
         int res = 0;
         int start = 0; // 窗口开始位置
         for (int i = 0; i < n; i++) {
@@ -80,7 +81,6 @@ public class LC3lengthOfLongestSubstring {
             res = Math.max(res, i - start + 1);
             last[index] = i;
         }
-
         return res;
     }
 }

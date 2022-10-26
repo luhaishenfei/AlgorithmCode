@@ -39,12 +39,12 @@ public class LC904totalFruit {
                     }
                     //上一个的数量转移，并加1重新计数
                     tmpNum = currentTypeNum + 1;
-                    typeSet.retainAll()
+//                    typeSet.retainAll()
 
                     currentType = fruits[i];
                     currentTypeNum = 1;
-                    type1 = fruits[i - 1];
-                    type2 = currentType;
+//                    type1 = fruits[i - 1];
+//                    type2 = currentType;
 
                 }
             }

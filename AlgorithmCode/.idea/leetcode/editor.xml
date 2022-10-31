@@ -113,6 +113,16 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../../code/LCCode/leetcode/editor/cn/LC907_sum-of-subarray-minimums.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="frontendQuestionId" value="leetcode.cn907" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/../../../../code/LCCode/leetcode/editor/cn/LC907_sum-of-subarray-minimums.java" />
+              <option name="titleSlug" value="sum-of-subarray-minimums" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../../code/LCCode/leetcode/editor/cn/LC912_sort-an-array.java">
           <value>
             <LeetcodeEditor>

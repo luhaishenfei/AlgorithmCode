@@ -1,4 +1,4 @@
-package grokkingAlgorithms;
+package ebook.grokkingAlgorithms;
 
 public class _3Euclid {
     public static void main(String[] args) {

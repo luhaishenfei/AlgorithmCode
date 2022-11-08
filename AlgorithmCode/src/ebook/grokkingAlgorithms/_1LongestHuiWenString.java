@@ -1,4 +1,4 @@
-package grokkingAlgorithms;
+package ebook.grokkingAlgorithms;
 
 public class _1LongestHuiWenString {
     public static void main(String[] args) {

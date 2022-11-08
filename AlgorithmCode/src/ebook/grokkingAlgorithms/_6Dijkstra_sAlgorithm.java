@@ -1,4 +1,4 @@
-package grokkingAlgorithms;
+package ebook.grokkingAlgorithms;
 
 import java.util.ArrayList;
 import java.util.HashMap;

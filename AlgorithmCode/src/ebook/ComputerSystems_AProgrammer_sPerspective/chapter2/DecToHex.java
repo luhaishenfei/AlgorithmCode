@@ -1,4 +1,4 @@
-package ComputerSystems_AProgrammer_sPerspective.chapter2;
+package ebook.ComputerSystems_AProgrammer_sPerspective.chapter2;
 
 public class DecToHex {
     public static void main(String[] args) {

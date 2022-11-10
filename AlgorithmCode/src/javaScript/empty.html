@@ -3,18 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
 </head>
 <body>
-
-<div class="doit"></div>
+<button id ="bt1" onclick="iplus()">click</button>
 <script>
+        i=1;
+</script>
+<script>
+    class test{
+        i=1111;
+    }
+    cl=new test;
+    console.log(cl.i);
 
+    //解决'，'和','的兼容问题
+    function strSplit(str) {
+        // var str ="1,2,3，4，5,"
+        str = str.replaceAll('，', ',');
+        console.log(str)
+        var list = str.split(',')
+        console.log(list)
+    }
 
-$(".doit").before("<form enctype=\"multipart/form-data\" id=\"fileUpload\">\n" +
-    "    <input type=\"file\" name=\"file\">\n" +
-    "    <input id=\"path\"    style=\"display: none \" type=\"text\" name=\"path\">\n" +
-    "    <input id=\"members\" style=\"display: none \" type=\"text\" name=\"visibleUsers\">\n"+
-    "</form>\n");
 </script>
 
 </body>

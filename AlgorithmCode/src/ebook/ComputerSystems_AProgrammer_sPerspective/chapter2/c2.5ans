@@ -1,0 +1,5 @@
+0x87654321
+
+A:little endian: 87      big endian:21
+B:little endian: 65      big endian:43
+C:little endian: 43      big endian:65

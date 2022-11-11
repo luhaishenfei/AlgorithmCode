@@ -29,6 +29,31 @@ public class LCOffer05replaceSpace {
         System.out.println(l.replaceSpace(s));
     }
 
+/*
+解答成功:
+	执行耗时:0 ms,击败了100.00% 的Java用户
+	内存消耗:39.2 MB,击败了74.89% 的Java用户
+
+ */
+    //very good
+    public String replaceSpaceLC2(String s) {
+        int length = s.length();
+        char[] array = new char[length * 3];
+        int size = 0;
+        for (int i = 0; i < length; i++) {
+            char c = s.charAt(i);
+            if (c == ' ') {
+                array[size++] = '%';
+                array[size++] = '2';
+                array[size++] = '0';
+            } else {
+                array[size++] = c;
+            }
+        }
+        String newStr = new String(array, 0, size);
+        return newStr;
+    }
+
 
 /*
 > 2022/11/11 12:04:29

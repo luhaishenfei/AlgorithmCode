@@ -30,6 +30,22 @@ public class LCOffer05replaceSpace {
     }
 
 
+/*
+> 2022/11/11 12:04:29
+解答成功:
+	执行耗时:0 ms,击败了100.00% 的Java用户
+	内存消耗:39.3 MB,击败了59.36% 的Java用户
+ */
+    public String replaceSpaceLC(String s) {
+        StringBuilder res = new StringBuilder();
+        for(Character c : s.toCharArray())
+        {
+            if(c == ' ') res.append("%20");
+            else res.append(c);
+        }
+        return res.toString();
+    }
+
     /*
 > 2022/11/11 12:01:29
 解答成功:

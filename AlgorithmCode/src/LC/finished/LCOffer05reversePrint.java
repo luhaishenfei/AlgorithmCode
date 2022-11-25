@@ -1,4 +1,4 @@
-package LC.undo;
+package LC.finished;
 
 import LC.finished._ListNode.ListNode;
 

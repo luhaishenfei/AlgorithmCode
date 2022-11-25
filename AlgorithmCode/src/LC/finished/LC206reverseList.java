@@ -1,4 +1,4 @@
-package LC.undo;
+package LC.finished;
 
 import LC.finished._ListNode.ListNode;
 
@@ -13,7 +13,7 @@ public class LC206reverseList {
         ListNode n4 = new ListNode(4, n3);
         ListNode n5 = new ListNode(5, n4);
         LC206reverseList l = new LC206reverseList();
-        l.reverseList1(n5);
+        ListNode listNode = l.reverseList1(n5);
 
     }
 

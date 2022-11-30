@@ -22,9 +22,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 //%20
-public class LCOffer05replaceSpace {
+public class LCOffer06replaceSpace {
     public static void main(String[] args) {
-        LCOffer05replaceSpace l = new LCOffer05replaceSpace();
+        LCOffer06replaceSpace l = new LCOffer06replaceSpace();
         String s = "Hello World ! ";
         System.out.println(l.replaceSpace(s));
     }

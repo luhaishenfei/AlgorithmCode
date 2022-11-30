@@ -1,4 +1,4 @@
-package ebook.ComputerSystems_AProgrammer_sPerspective.chapter2;
+package ebook.ComputerSystems_AProgrammer_sPerspective.chapter2._1;
 
 public class C2_15ans {
     public static void main(String[] args) {
@@ -12,8 +12,6 @@ public class C2_15ans {
     10100
    ^0
    =11111
-
-
      */
 
 

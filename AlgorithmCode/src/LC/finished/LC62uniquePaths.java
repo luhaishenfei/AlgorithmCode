@@ -58,7 +58,6 @@ public class LC62uniquePaths {
     public static void main(String[] args) {
         LC62uniquePaths l = new LC62uniquePaths();
         System.out.println(l.uniquePaths(4, 7));
-        System.out.println(l.uniquePaths1Error(4, 7));
 //        System.out.println(l.getHierarchy(10));
     }
 
@@ -73,9 +72,6 @@ public class LC62uniquePaths {
         }
         return dp[m - 1][n - 1];
     }
-
-
-
 
 /*
     执行耗时:0 ms,击败了100.00% 的Java用户

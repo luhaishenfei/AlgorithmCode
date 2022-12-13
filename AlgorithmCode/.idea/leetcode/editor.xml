@@ -83,6 +83,16 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../../code/LCCode/leetcode/editor/cn/LC33_search-in-rotated-sorted-array.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="frontendQuestionId" value="leetcode.cn33" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/../../../../code/LCCode/leetcode/editor/cn/LC33_search-in-rotated-sorted-array.java" />
+              <option name="titleSlug" value="search-in-rotated-sorted-array" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../../code/LCCode/leetcode/editor/cn/LC3_longest-substring-without-repeating-characters.java">
           <value>
             <LeetcodeEditor>
@@ -90,6 +100,16 @@
               <option name="host" value="leetcode.cn" />
               <option name="path" value="$PROJECT_DIR$/../../../../code/LCCode/leetcode/editor/cn/LC3_longest-substring-without-repeating-characters.java" />
               <option name="titleSlug" value="longest-substring-without-repeating-characters" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../code/LCCode/leetcode/editor/cn/LC62_unique-paths.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="frontendQuestionId" value="leetcode.cn62" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/../../../../code/LCCode/leetcode/editor/cn/LC62_unique-paths.java" />
+              <option name="titleSlug" value="unique-paths" />
             </LeetcodeEditor>
           </value>
         </entry>

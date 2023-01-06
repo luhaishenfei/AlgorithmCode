@@ -20,7 +20,8 @@ public class LC145postorderTraversal {
         TreeNode t1 = new TreeNode(1, t2, t3);
 
         LC145postorderTraversal l = new LC145postorderTraversal();
-        l.postorderTraversalDD(t1);
+        List<Integer> list = l.postorderTraversal(t1);
+        System.out.println(list);
     }
 
 

@@ -83,6 +83,16 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../../code/LCCode/leetcode/editor/cn/LC1806_minimum-number-of-operations-to-reinitialize-a-permutation.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="frontendQuestionId" value="leetcode.cn1806" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/../../../../code/LCCode/leetcode/editor/cn/LC1806_minimum-number-of-operations-to-reinitialize-a-permutation.java" />
+              <option name="titleSlug" value="minimum-number-of-operations-to-reinitialize-a-permutation" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../../code/LCCode/leetcode/editor/cn/LC1812_determine-color-of-a-chessboard-square.java">
           <value>
             <LeetcodeEditor>
@@ -170,6 +180,16 @@
               <option name="host" value="leetcode.cn" />
               <option name="path" value="$PROJECT_DIR$/../../../../code/LCCode/leetcode/editor/cn/LC672_bulb-switcher-ii.java" />
               <option name="titleSlug" value="bulb-switcher-ii" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../code/LCCode/leetcode/editor/cn/LC753_cracking-the-safe.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="frontendQuestionId" value="leetcode.cn753" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/../../../../code/LCCode/leetcode/editor/cn/LC753_cracking-the-safe.java" />
+              <option name="titleSlug" value="cracking-the-safe" />
             </LeetcodeEditor>
           </value>
         </entry>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="http://10.0.16.158:8076/image/upload" method="post" enctype="multipart/form-data" id="fileUpload">
+    <input id="file" type="file" name="file">
+    <input id="groupId" value="group1">
+    <input type="submit">
+</form>
+<input id="file_upload" value="导入"  type="file"  onchange="filechange()" />
+<button onclick="filechange()"></button>
+
+<script>
+    //文件选择改变事件
+    function filechange() {
+        console.log("start");
+        var selectFile = document.getElementById("file_upload");
+        var filePath = selectFile.value;//文件路径
+        var fileName = selectFile.files[0].name;//上传的文件名称
+        var file = selectFile.files[0];//上传的文件
+        var extn = fileName.substring(fileName.lastIndexOf('.') + 1).toLowerCase();//文件后缀
+        //文件base64string获取
+        if (window.FileReader) {
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            //监听文件读取结束后事件
+            reader.onloadend = function (e) {
+                var base64String=e.target.result;
+                console.log(base64String);
+            };
+        }
+    }
+
+
+
+    $(".picturePoint").before("");
+</script>
+</body>
+</html>

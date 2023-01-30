@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //解决'，'和','的兼容问题
+    var str ="1,2,3，4，5,"
+    str=str.replaceAll('，',',');
+    console.log(str)
+    var list = str.split(',')
+    console.log(list)
+</script>
+
+</body>
+</html>

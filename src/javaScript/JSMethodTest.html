@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="doit">do</div>
+<form>
+    <input id="file" type="file">
+</form>
+
+
+<!--
+
+<form enctype=\
+"multipart/form-data\" id=\"fileUpload\">\n" +
+"                        <input type=\"file\" name=\"file\"/>\n" +
+"                    </form>
+style="display: none "
+-->
+<form  enctype="multipart/form-data" id="fileUpload">
+    <input  type="file" name="file">
+    <input id="path" style="display: none " type="text" name="path">
+</form>
+
+<div class="preview">111</div>
+<div class="preview">222</div>
+
+<script>
+
+
+
+
+
+    // var fileUrl=document.getElementById("path");
+    // fileUrl.value=111222
+    // console.log(fileUrl.value)
+
+    var dlist=document.getElementsByClassName('preview');
+    console.log(dlist);
+    for (let dlistElement of dlist) {
+        dlistElement.style.display='none';
+    }
+    document.getElementById('');
+</script>
+
+<script>
+
+var reader = new FileReader();
+file=document.getElementById('file')
+reader.readAsDataURL(file);
+reader.onload = function(){
+console.log('图片', reader.result); //获取到base64格式图片
+}
+/*
+
+ */
+</script>
+
+<script>
+
+
+    //jq create html element. version 1
+    $(".doit").before("  <form enctype=\"multipart/form-data\" id=\"fileUpload\">\n" +
+        "                        <input type=\"file\" name=\"file\"/>\n" +
+        "                        <input type=\"button\" id=\"btnSubmit\" value=\" 上 传 \"/>\n" +
+        "                    </form>");
+
+    $("#btnSubmit").click(function () {
+        $("#fileUpload").ajaxSubmit({
+            success: function (data) {
+                // 上传完成，刷新table
+                if (1 === data.code) {
+                    alert(data.msg);
+                } else {
+                    $('#table').bootstrapTable('refresh', {});
+                }
+                $(".loading_container").hide();
+            },
+            error: function () {
+                alert('上传失败，请联系管理员');
+                $(".loading_container").hide();
+            },
+            url: 'http://localhost:8012/fileUpload', /*设置post提交到的页面*/
+            type: "post", /*设置表单以post方法提交*/
+            dataType: "json" /*设置返回值类型为文本*/
+        });
+    });
+
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        int start =0;
+        int end =inorder.length-1;
+        int p=0;
+        int i=0;
+        TreeNode root=new TreeNode(preorder[p]);
+        int idx = getTarget(inorder, preorder[p]);
+        root.left= getNode(preorder,inorder,1,idx-1);
+        root.right=getNode(preorder,inorder,idx+1, inorder.length-1);
+        int flag=0;
+        TreeNode tmp=new TreeNode(preorder[p]);
+        if (inorder[i]==preorder[p]){
+            tmp.left = null;
+        }else {
+            tmp.left=new TreeNode(preorder[p]);
+
+        }
+        return null;
+    }
+
+
+
+    //v2  delete button
+    $(".doit").before("  <form enctype=\"multipart/form-data\" id=\"fileUpload\">\n" +
+        "                        <input type=\"file\" name=\"file\"/>\n" +
+        "                    </form>");
+
+
+
+
+</script>
+
+</body>
+</html>

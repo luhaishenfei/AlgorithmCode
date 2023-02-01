@@ -6,7 +6,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class LC100IsSameTree {
-
     /*
 
 public class TreeNode {

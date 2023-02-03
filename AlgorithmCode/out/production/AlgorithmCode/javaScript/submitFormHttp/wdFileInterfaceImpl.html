@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form  action="https://lx2.ihotwind.cn/api/upload" method="post" enctype="multipart/form-data"  id="fileUpload" >
+    <input type="file" id="file" name="file"/>
+    <input type="submit">
+</form>
+<script>
+    $(".picturePoint").before("<form  action=\"https://lx2.ihotwind.cn/api/upload\" method=\"post\" enctype=\"multipart/form-data\"  id=\"fileUpload\" >\n" +
+        "    <input type=\"file\" id=\"file\" name=\"file\"/>\n" +
+        "    <input type=\"submit\">\n" +
+        "</form>");
+
+
+    $(".picturePoint").before("<form  action=\"https://lx2.ihotwind.cn/api/upload\" method=\"post\" enctype=\"multipart/form-data\"  id=\"fileUpload\">\n" +
+        "        <input type=\"file\" id=\"file\" name=\"file\" style=\"margin: 20px; padding: 20px; background-color: white; color: black; width: 32px; \n" +
+        "        height: 40px;\"  />\n" +
+        "        <br>\n" +
+        "        <input type=\"submit\"  style=\"margin: 20px; padding: 20px; background-color: white; color: black; width: 32px; \n" +
+        "        height: 40px;\">");
+</script>
+</body>
+</html>

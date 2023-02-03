@@ -77,7 +77,6 @@ public class LC658findClosestElements {
     // [1,2,3,4]
     public List<Integer> findClosestElements(int[] arr, int k, int x) {
         List res = new ArrayList();
-
         int aim = getIdx(arr, x);
         int leftIdx=aim-1;
         int rightIdx=aim+1;

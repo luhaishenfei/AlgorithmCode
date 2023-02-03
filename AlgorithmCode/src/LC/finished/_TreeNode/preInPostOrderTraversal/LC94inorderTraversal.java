@@ -25,6 +25,7 @@ public class LC94inorderTraversal {
         l.inorderTraversalLC(t1);
     }
 
+
     List<Integer> list = new ArrayList();
 
     public List<Integer> inorderTraversal(TreeNode root) {

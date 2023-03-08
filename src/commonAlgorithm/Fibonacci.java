@@ -4,7 +4,11 @@ public class Fibonacci {
     public static void main(String[] args) {
         Fibonacci o = new Fibonacci();
         long timer=System.currentTimeMillis();
-        System.out.println(o.FibonacciDPPlis(10001110));
+        for (int i = 0; i < 6; i++) {
+            System.out.println(o.FibonacciDPPlis(i));
+        }
+        System.out.println(o.FibonacciDPPlis(45));
+
         timer=System.currentTimeMillis()-timer;
         System.out.println(timer);
 
@@ -20,6 +24,8 @@ public class Fibonacci {
         }
         return FibonacciDG(n-1)+FibonacciDG(n-2);
     }
+
+
 
     //动态规划
     int FibonacciDP(int n){

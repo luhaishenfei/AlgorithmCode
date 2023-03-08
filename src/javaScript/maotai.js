@@ -13,8 +13,6 @@ function checkElementState(path,callback){
 	}
 }
 
-
-
 //点击购买按钮
 function clickBuy(){
 	

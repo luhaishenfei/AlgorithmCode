@@ -9,6 +9,7 @@ public class LC915partitionDisjoint {
         System.out.println(l.partitionDisjointLCUser(new int[]{4, 0, 3, 5, 7, 1, 8, 6}));
     }
 
+
     //    nums = [5,0,3,8,6]
     //            3
     //    left = [5,0,3]，right = [8,6]
